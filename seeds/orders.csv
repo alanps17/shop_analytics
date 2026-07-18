@@ -1,0 +1,16 @@
+order_id,customer_id,product_id,quantity,status,order_date
+1,1,1,1,completed,2024-02-01
+2,2,3,1,completed,2024-02-03
+3,1,4,2,completed,2024-02-05
+4,3,2,1,cancelled,2024-02-07
+5,4,6,1,completed,2024-02-10
+6,5,8,1,completed,2024-02-12
+7,2,7,1,cancelled,2024-02-14
+8,6,1,1,completed,2024-02-15
+9,1,3,1,completed,2024-02-18
+10,4,4,3,completed,2024-02-20
+11,7,2,1,completed,2024-02-22
+12,3,5,2,cancelled,2024-02-23
+13,6,8,2,completed,2024-02-25
+14,2,1,1,completed,2024-02-27
+15,5,6,1,completed,2024-02-28
