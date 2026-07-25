@@ -1,15 +1,27 @@
-Welcome to your new dbt project!
+# Shop Analytics — учебный e-commerce pet-проект
 
-### Using the starter project
+## О проекте
 
-Try running the following commands:
-- dbt run
-- dbt test
+Пет-проект для демонстрации навыков работы с данными: от генерации тестовых данных до трансформации и визуализации.
 
+**Важно:** это синтетический (самостоятельно сгенерированный) датасет интернет-магазина. Он не связан ни с одной конкретной компанией, не содержит реальных данных клиентов или заказов и создан исключительно в учебных целях.
 
-### Resources:
-- Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
-- Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
-- Join the [chat](https://community.getdbt.com/) on Slack for live discussions and support
-- Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
+## Стек
+
+- **ClickHouse** — хранилище данных
+- **dbt** — трансформация данных (staging → marts)
+- **Superset** — визуализация (в процессе)
+- **Python** — генерация тестовых данных (в процессе)
+
+## Структура проекта
+
+- `seeds/` — исходные тестовые данные (customers, orders, products)
+- `models/staging/` — очистка сырых данных (дубли, пропуски)
+- `models/marts/` — готовые витрины для дашборда (в процессе)
+
+## Как запустить
+
+```bash
+dbt seed
+dbt run
+```
