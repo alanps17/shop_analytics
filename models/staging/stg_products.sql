@@ -4,3 +4,4 @@ select
     category,
     price
 from shop_analytics.products
+
