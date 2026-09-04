@@ -27,3 +27,13 @@ models:
       - name: revenue
         tests:
           - not_null
+
+  - name: dim_products
+    columns:
+      - name: product_id
+        tests:
+          - unique
+          - not_null
+      - name: category
+        tests:
+          - not_null       
