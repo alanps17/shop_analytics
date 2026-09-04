@@ -3,10 +3,11 @@ version: 2
 models:
   - name: stg_customers
     columns:
-      - name: email
+      - name: customer_id
         tests:
           - unique
-      - name: customer_id
+          - not_null
+      - name: customer_unique_id
         tests:
           - not_null
 
