@@ -10,7 +10,7 @@ select
     o.order_purchase_ts,
     o.order_delivered_customer_ts,
 
-    p.product_category_name as category,
+    coalesce(nullif(p.product_category_name, ''), 'unknown') as category,
 
     oi.price,
     oi.freight_value,

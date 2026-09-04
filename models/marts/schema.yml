@@ -15,3 +15,15 @@ models:
       - name: price
         tests:
           - not_null
+
+  - name: agg_revenue_daily
+    columns:
+      - name: order_date
+        tests:
+          - not_null
+      - name: category
+        tests:
+          - not_null
+      - name: revenue
+        tests:
+          - not_null
