@@ -69,3 +69,18 @@ models:
       - name: revenue
         tests:
           - not_null 
+
+  - name: agg_sales
+    columns:
+      - name: order_date
+        tests:
+          - not_null
+      - name: state
+        tests:
+          - not_null
+      - name: category
+        tests:
+          - not_null
+      - name: revenue
+        tests:
+          - not_null       
