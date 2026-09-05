@@ -1,5 +1,11 @@
+{{ config(
+    engine='MergeTree()',
+    order_by='(order_date, category, order_id)',
+    partition_by='toYYYYMM(order_date)'
+) }}
+
 select
-    oi.order_id as order_id,
+    assumeNotNull(oi.order_id) as order_id,
     oi.order_item_id,
     oi.product_id as product_id,
     oi.seller_id,
@@ -7,11 +13,11 @@ select
     c.customer_unique_id,
 
     o.order_status,
-    toDate(o.order_purchase_ts) as order_date,
+    assumeNotNull(toDate(o.order_purchase_ts)) as order_date,
     o.order_purchase_ts,
     o.order_delivered_customer_ts,
 
-    coalesce(nullif(p.product_category_name, ''), 'unknown') as category,
+    assumeNotNull(coalesce(nullif(p.product_category_name, ''), 'unknown')) as category,
     c.customer_city as city,
     c.customer_state as state,
 

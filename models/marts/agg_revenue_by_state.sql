@@ -1,5 +1,11 @@
+{{ config(
+    engine='MergeTree()',
+    order_by='(month, state)',
+    partition_by='toYear(month)'
+) }}
+
 select
-    state,
+    assumeNotNull(state) as state,
     toStartOfMonth(order_date) as month,
     round(sum(price), 2) as revenue,
     round(sum(freight_value), 2) as freight,

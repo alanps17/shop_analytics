@@ -1,3 +1,10 @@
+{{ config(
+    engine='MergeTree()',
+    order_by='(order_date, category)',
+    partition_by='toYYYYMM(order_date)'
+) }}
+
+
 select
     order_date,
     category,
