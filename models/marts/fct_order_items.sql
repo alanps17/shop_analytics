@@ -1,7 +1,10 @@
 {{ config(
+    materialized='incremental',
     engine='MergeTree()',
     order_by='(order_date, category, order_id)',
-    partition_by='toYYYYMM(order_date)'
+    partition_by='toYYYYMM(order_date)',
+    incremental_strategy='delete+insert',
+    unique_key='(order_id, order_item_id)'
 ) }}
 
 select
@@ -35,3 +38,10 @@ left join {{ ref('stg_products') }} as p
 
 left join {{ ref('stg_customers') }} as c
     on c.customer_id = o.customer_id
+
+{% if is_incremental() %}
+where o.order_purchase_ts >= (
+    select max(order_purchase_ts) - interval 7 day
+    from {{ this }}
+)
+{% endif %}    
