@@ -185,7 +185,7 @@ Superset сопоставляет регионы по кодам ISO 3166-2 с �
 # ClickHouse
 docker run -d --name clickhouse-server \
   -p 8123:8123 -p 9000:9000 \
-  -e CLICKHOUSE_PASSWORD=123 \
+  -e CLICKHOUSE_PASSWORD=your_password \
   clickhouse/clickhouse-server
 
 # dbt
